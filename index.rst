@@ -11,6 +11,8 @@ sphinx教程
    :caption: 第一章：sphinx简介
 
    1-introduction/info.rst
+   1-introduction/note.md 
+   1-introduction/note2.md
 
 Indices and tables
 ==================
