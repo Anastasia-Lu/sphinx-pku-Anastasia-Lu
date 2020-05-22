@@ -1,13 +1,18 @@
+---
+title: Common Questions and Troubleshooting
+category: reference
+aliases: ['/docs-cn/dev/reference/tools/ticdc/troubleshoot/']
+---
 
+# Common Questions and Troubleshooting
 
-# Common Questions and Trouble Shooting
+this document lists a commonly asked question when using TiCDC and shows an operation solution. It also summerizes some common operation troubles and their solutions.
 
-this document lists a commonly asked question when using TICDC and shows an operation solution. It also summerizes some common operation troubles and their solutions.
 ## How to choose start-ts when starting a task
+
 First, you should know that the `start-ts` of a replication task corresponds to a TSO of the upstream TiDB cluster. The replication task will start its data request from this TSO. Therefore, the `start-ts` should meet two conditions below:
+
 - the value of `start-ts` should be larger than current `tikv_gc_safe_point`, otherwise, an error would occor when creating the task.
-
-
 - While starting the task, you should ensure that the downstream has all the previous data before start-ts. You can loose this requirement accordingly, when the replication task is for message queue or other senarios, in which strict data consistensy between upstream and downstream is not required.
 
 If `start-ts` is not specified or specified 0 `start-ts=0`, when the task gets started, it will get the current TSO from PD and start to replicate data from this TSO.
