@@ -10,7 +10,7 @@ First, you should know that the `start-ts` of a replication task corresponds to 
 
 - While starting the task, you should ensure that the downstream has all the previous data before start-ts. You can loose this requirement accordingly, when the replication task is for message queue or other senarios, in which strict data consistensy between upstream and downstream is not required.
 
-If `start-ts` is not assigned or assigned 0 `start-ts=0`, when the task gets started, will get the current TSO from PD and start to replicate data from this TSO.
+If `start-ts` is not specified or specified 0 `start-ts=0`, when the task gets started, it will get the current TSO from PD and start to replicate data from this TSO.
 
 ## When a task gets started, it prompts that some tables cannot be synchronized
 
